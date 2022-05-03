@@ -71,6 +71,7 @@ def _search_thread(wordlist: list, url: str):
         request = requests.get(full_url, timeout=5)
 
         if request.status_code != 404:
+            lprint.print_path(full_url, request.status_code)
             found_paths.append((full_url, request.status_code))
 
     all_found_paths.append(found_paths)
