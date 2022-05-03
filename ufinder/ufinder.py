@@ -59,11 +59,11 @@ def _split_list(_list: list, parts: int):
 def _start_threads(num_threads: int, wordlist: list, url: str):
     for i in num_threads:
         thread_wordlist = wordlist[i]
-        tr = Thread(target=_search_thread, args=(thread_wordlist, url))
+        tr = Thread(target=_search_path, args=(thread_wordlist, url))
         tr.start()
 
 
-def _search_thread(wordlist: list, url: str):
+def _search_path(wordlist: list, url: str):
     found_paths = []
 
     for path in wordlist:
