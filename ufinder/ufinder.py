@@ -37,11 +37,11 @@ def main():
     if args.search:
         url = args.search
 
-    wordlist = _load_wordlist(wordlist_path)
-    threads_wordlist = _split_list(wordlist, num_threads)
+        wordlist = _load_wordlist(wordlist_path)
+        threads_wordlist = _split_list(wordlist, num_threads)
 
-    lprint.print_loading('Initializing threads...')
-    _start_threads(num_threads, threads_wordlist, url)
+        lprint.print_loading('Initializing threads...')
+        _start_threads(num_threads, threads_wordlist, url)
 
 
 def _split_list(_list: list, parts: int):
