@@ -1,8 +1,13 @@
 import lprint
 from argeasy import ArgEasy
 
+from threading import Thread
+import requests
+
 WORDLIST_PATH = './wordlist.txt'
 NUM_THREADS = 4
+
+all_found_paths = []
 
 
 def main():
@@ -43,6 +48,19 @@ def split_list(_list: list, parts: int):
         last_part += parts
 
     return splited_list
+
+
+def _search_thread(wordlist: list, url: str):
+    found_paths = []
+
+    for path in wordlist:
+        full_url = f'{url}/{path}'
+        request = requests.get(full_url, timeout=5)
+
+        if request.status_code != 404:
+            found_paths.append((full_url, request.status_code))
+
+    all_found_paths.append(found_paths)
 
 
 def load_wordlist(path: str):
