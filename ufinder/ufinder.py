@@ -38,7 +38,7 @@ def main():
         url = args.search
 
     wordlist = _load_wordlist(wordlist_path)
-    threads_wordlist = _split_list(wordlist)
+    threads_wordlist = _split_list(wordlist, num_threads)
 
     lprint.print_loading('Initializing threads...')
     _start_threads(num_threads, threads_wordlist, url)
