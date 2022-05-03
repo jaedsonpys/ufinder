@@ -40,6 +40,7 @@ def main():
     wordlist = _load_wordlist(wordlist_path)
     threads_wordlist = _split_list(wordlist)
 
+    lprint.print_loading('Initializing threads...')
     _start_threads(num_threads, threads_wordlist, url)
 
 
