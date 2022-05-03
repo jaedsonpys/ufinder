@@ -1,4 +1,18 @@
 import lprint
+from argeasy import ArgEasy
+
+
+def main():
+    parser = ArgEasy(
+        project_name='UFinder',
+        description='ufinder does a path search on the site using a wordlist. Showing all paths found.',
+        version='1.0.0'
+    )
+
+    parser.add_argument('search', 'Search URL paths')
+    parser.add_flag('--wordlist', 'Set the path of a custom wordlist')
+
+    args = parser.get_args()
 
 
 def load_wordlist(path: str):
@@ -20,3 +34,6 @@ def load_wordlist(path: str):
 
     lprint.print_sucess('Wordlist loaded with sucess')
     return wordlist    
+
+
+main()
