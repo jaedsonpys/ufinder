@@ -10,6 +10,10 @@ def print_error(message: str):
     print(f'\033[1;31m[ ERROR   ]\033[m \033[1;37m{message}\033[m')
 
 
+def print_path(path: str, status_code: str):
+    print(f'\033[1;32m[{status_code}]\033[m {path}')
+
+
 if __name__ == '__main__':
     print_loading('Loading wordlist')
     print_sucess('Wordlist loaded')
