@@ -33,6 +33,18 @@ def main():
         url_path = args.search
 
 
+def split_list(_list: list, parts: int):
+    list_len = len(_list)
+    last_part = 0
+    splited_list = []
+
+    for __ in range(int(list_len / parts)):
+        splited_list.append(_list[last_part: last_part + parts])
+        last_part += parts
+
+    return splited_list
+
+
 def load_wordlist(path: str):
     lprint.print_loading('Loading worldlist...')
 
