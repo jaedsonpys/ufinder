@@ -1,8 +1,12 @@
 import lprint
 from argeasy import ArgEasy
 
+DEFAULT_WORDLIST_PATH = './wordlist.txt'
+
 
 def main():
+    wordlist_path = DEFAULT_WORDLIST_PATH
+
     parser = ArgEasy(
         project_name='UFinder',
         description='ufinder does a path search on the site using a wordlist. Showing all paths found.',
@@ -13,6 +17,13 @@ def main():
     parser.add_flag('--wordlist', 'Set the path of a custom wordlist')
 
     args = parser.get_args()
+
+    # if available getting custom wordlist
+    if args.wordlist:
+            wordlist_path = args.wordlist
+
+    if args.search:
+        url_path = args.search
 
 
 def load_wordlist(path: str):
