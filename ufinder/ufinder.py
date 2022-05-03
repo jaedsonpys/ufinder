@@ -1,11 +1,13 @@
 import lprint
 from argeasy import ArgEasy
 
-DEFAULT_WORDLIST_PATH = './wordlist.txt'
+WORDLIST_PATH = './wordlist.txt'
+NUM_THREADS = 4
 
 
 def main():
-    wordlist_path = DEFAULT_WORDLIST_PATH
+    wordlist_path = WORDLIST_PATH
+    num_threads = NUM_THREADS
 
     parser = ArgEasy(
         project_name='UFinder',
@@ -15,12 +17,17 @@ def main():
 
     parser.add_argument('search', 'Search URL paths')
     parser.add_flag('--wordlist', 'Set the path of a custom wordlist')
+    parser.add_flag('--threads', 'Set the number of threads')
 
     args = parser.get_args()
 
     # if available getting custom wordlist
     if args.wordlist:
-            wordlist_path = args.wordlist
+        wordlist_path = args.wordlist
+
+    # if available getting custom number of threads
+    if args.threads:
+        threads = int(args.threads)
 
     if args.search:
         url_path = args.search
