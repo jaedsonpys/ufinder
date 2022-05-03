@@ -50,6 +50,13 @@ def split_list(_list: list, parts: int):
     return splited_list
 
 
+def _start_thread(num_threads: int, wordlist: list, url: str):
+    for i in num_threads:
+        thread_wordlist = wordlist[i]
+        tr = Thread(target=_search_thread, args=(thread_wordlist, url))
+        tr.start()
+
+
 def _search_thread(wordlist: list, url: str):
     found_paths = []
 
