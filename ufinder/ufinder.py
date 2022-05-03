@@ -35,7 +35,12 @@ def main():
         num_threads = int(args.threads)
 
     if args.search:
-        url_path = args.search
+        url = args.search
+
+    wordlist = load_wordlist(wordlist_path)
+    threads_wordlist = split_list(wordlist)
+
+    _start_thread(num_threads, threads_wordlist, url)
 
 
 def split_list(_list: list, parts: int):
