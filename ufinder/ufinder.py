@@ -37,13 +37,13 @@ def main():
     if args.search:
         url = args.search
 
-    wordlist = load_wordlist(wordlist_path)
-    threads_wordlist = split_list(wordlist)
+    wordlist = _load_wordlist(wordlist_path)
+    threads_wordlist = _split_list(wordlist)
 
-    _start_thread(num_threads, threads_wordlist, url)
+    _start_threads(num_threads, threads_wordlist, url)
 
 
-def split_list(_list: list, parts: int):
+def _split_list(_list: list, parts: int):
     list_len = len(_list)
     last_part = 0
     splited_list = []
@@ -55,7 +55,7 @@ def split_list(_list: list, parts: int):
     return splited_list
 
 
-def _start_thread(num_threads: int, wordlist: list, url: str):
+def _start_threads(num_threads: int, wordlist: list, url: str):
     for i in num_threads:
         thread_wordlist = wordlist[i]
         tr = Thread(target=_search_thread, args=(thread_wordlist, url))
@@ -75,7 +75,7 @@ def _search_thread(wordlist: list, url: str):
     all_found_paths.append(found_paths)
 
 
-def load_wordlist(path: str):
+def _load_wordlist(path: str):
     lprint.print_loading('Loading worldlist...')
 
     try:
