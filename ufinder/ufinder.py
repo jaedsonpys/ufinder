@@ -27,7 +27,7 @@ def main():
 
     # if available getting custom number of threads
     if args.threads:
-        threads = int(args.threads)
+        num_threads = int(args.threads)
 
     if args.search:
         url_path = args.search
