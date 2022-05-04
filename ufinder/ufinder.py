@@ -57,6 +57,8 @@ def _split_list(_list: list, parts: int):
 
 
 def _start_threads(num_threads: int, wordlist: list, url: str):
+    print()
+
     for i in range(num_threads):
         thread_wordlist = wordlist[i]
         tr = Thread(target=_search_path, args=(thread_wordlist, url))
