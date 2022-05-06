@@ -7,8 +7,6 @@ import requests
 WORDLIST_PATH = './wordlist.txt'
 NUM_THREADS = 4
 
-all_found_paths = []
-
 
 def main():
     wordlist_path = WORDLIST_PATH
@@ -77,7 +75,6 @@ def _search_path(wordlist: list, url: str):
 
         if request.status_code != 404:
             lprint.print_path(full_url, request.status_code)
-            all_found_paths.append((full_url, request.status_code))
 
 
 def _load_wordlist(path: str):
