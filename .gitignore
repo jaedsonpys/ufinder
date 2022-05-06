@@ -1,3 +1,6 @@
 venv
 __pycache__
 wordlist.txt
+dist
+build
+*.egg-info
