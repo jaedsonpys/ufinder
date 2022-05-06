@@ -46,12 +46,14 @@ def main():
 
 def _split_list(_list: list, parts: int):
     list_len = len(_list)
-    last_part = 0
-    splited_list = []
+    last_index = 0
 
-    for __ in range(int(list_len / parts)):
-        splited_list.append(_list[last_part: last_part + parts])
-        last_part += parts
+    splited_list = []
+    list_parts = int(list_len / parts)
+
+    for __ in range(parts):
+        splited_list.append(_list[last_index: list_parts + last_index])
+        last_index += list_parts
 
     return splited_list
 
