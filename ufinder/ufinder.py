@@ -71,7 +71,13 @@ def _search_path(wordlist: list, url: str):
     for path in wordlist:
         path = path.replace('\n', '')
         full_url = f'{url}/{path}'
-        request = requests.get(full_url, timeout=5)
+
+        try:
+            request = requests.get(full_url, timeout=5)
+        except requests.exceptions.ReadTimeout:
+            lprint.print_path(full_url, 'TIMEOUT')
+        except:
+            continue
 
         if request.status_code != 404:
             lprint.print_path(full_url, request.status_code)
