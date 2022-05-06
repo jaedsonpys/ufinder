@@ -71,6 +71,7 @@ def _search_path(wordlist: list, url: str):
     found_paths = []
 
     for path in wordlist:
+        path = path.replace('\n', '')
         full_url = f'{url}/{path}'
         request = requests.get(full_url, timeout=5)
 
