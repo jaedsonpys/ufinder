@@ -39,7 +39,7 @@ def main():
 
         wordlist = _load_wordlist(wordlist_path)
         if wordlist is False: exit(0)
-        
+
         threads_wordlist = _split_list(wordlist, num_threads)
 
         lprint.print_loading('Initializing threads...')
@@ -70,8 +70,6 @@ def _start_threads(num_threads: int, wordlist: list, url: str):
 
 
 def _search_path(wordlist: list, url: str):
-    found_paths = []
-
     for path in wordlist:
         path = path.replace('\n', '')
         full_url = f'{url}/{path}'
@@ -79,9 +77,7 @@ def _search_path(wordlist: list, url: str):
 
         if request.status_code != 404:
             lprint.print_path(full_url, request.status_code)
-            found_paths.append((full_url, request.status_code))
-
-    all_found_paths.append(found_paths)
+            all_found_paths.append((full_url, request.status_code))
 
 
 def _load_wordlist(path: str):
