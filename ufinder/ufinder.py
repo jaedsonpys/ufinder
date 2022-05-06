@@ -1,4 +1,4 @@
-import lprint
+from . import lprint
 from argeasy import ArgEasy
 
 from threading import Thread
