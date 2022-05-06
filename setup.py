@@ -27,5 +27,10 @@ setup(
         'Programming Language :: Python',
         'Topic :: Internet :: WWW/HTTP :: Indexing/Search',
         'Topic :: Security'
-    ]
+    ],
+    entry_points={
+        'console_scripts': [
+            'ufinder = ufinder.ufinder:main'
+        ]
+    },
 )
