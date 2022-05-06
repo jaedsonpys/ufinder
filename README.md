@@ -8,6 +8,7 @@ UFinder performs a search for paths (routes or directories) at the given URL, sh
   - [Links](#links)
 - [Installation](#installation)
 - [Using UFinder](#using-ufinder)
+- [License](#license)
 
 # Installation
 
@@ -40,3 +41,7 @@ ufinder search https://github.com --wordlist ./mywordlist.txt --threads 2
 ```
 
 Simple.
+
+# License
+
+This project uses the `MIT license`.
