@@ -38,6 +38,8 @@ def main():
         url = args.search
 
         wordlist = _load_wordlist(wordlist_path)
+        if wordlist is False: exit(0)
+        
         threads_wordlist = _split_list(wordlist, num_threads)
 
         lprint.print_loading('Initializing threads...')
