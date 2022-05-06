@@ -102,6 +102,3 @@ def _load_wordlist(path: str):
 
     lprint.print_sucess('Wordlist loaded with sucess')
     return wordlist    
-
-
-main()
