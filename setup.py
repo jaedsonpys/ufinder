@@ -12,6 +12,7 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=['ufinder'],
+    install_requires=['requests'],
     license='MIT',
     project_urls={
         'Source Code': 'https://github.com/jaedsonpys/ufinder',
